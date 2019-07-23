@@ -194,7 +194,7 @@ const PrintView = createReactClass({
 
     return (
       <div className="feature-info">
-        <h1>Feature Information</h1>
+        <h1>特征信息</h1>
         <FeatureInfoPanel
           terria={this.props.terria}
           viewState={this.props.viewState}

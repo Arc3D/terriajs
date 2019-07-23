@@ -25,7 +25,7 @@ const Workbench = createReactClass({
     return (
       <div className={Styles.workbench}>
         <BadgeBar
-          label="Data Sets"
+          label="数据集"
           badge={this.props.terria.nowViewing.items.length}
         >
           <button
@@ -33,7 +33,7 @@ const Workbench = createReactClass({
             onClick={this.removeAll}
             className={Styles.removeButton}
           >
-            Remove All <Icon glyph={Icon.GLYPHS.remove} />
+            移除所有 <Icon glyph={Icon.GLYPHS.remove} />
           </button>
         </BadgeBar>
         <WorkbenchList

@@ -128,10 +128,10 @@ const ExplorerWindow = createReactClass({
             type="button"
             onClick={this.close}
             className={Styles.btnCloseModal}
-            title="Close data panel"
+            title="关闭数据面板"
             data-target="close-modal"
           >
-            Done
+            完成
           </button>
           <Tabs terria={this.props.terria} viewState={this.props.viewState} />
         </div>

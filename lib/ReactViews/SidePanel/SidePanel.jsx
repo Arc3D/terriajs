@@ -91,7 +91,7 @@ const SidePanel = createReactClass({
             viewState={this.props.viewState}
             minified={true}
             animationDuration={250}
-            btnText="Hide"
+            btnText="隐藏"
           />
 
           <SearchBox
@@ -99,23 +99,23 @@ const SidePanel = createReactClass({
             onDoSearch={this.search}
             onFocus={this.startLocationSearch}
             searchText={searchState.locationSearchText}
-            placeholder="Search for locations"
+            placeholder="搜索地点"
           />
           <div className={Styles.addData}>
             <button
               type="button"
               onClick={this.onAddDataClicked}
               className={Styles.button}
-              title="Add data"
+              title="添加数据"
             >
               <Icon glyph={Icon.GLYPHS.add} />
-              Add data
+              添加数据
             </button>
             <button
               type="button"
               onClick={this.onAddLocalDataClicked}
               className={Styles.uploadData}
-              title="Load local/web data"
+              title="加载本地/网络数据"
             >
               <Icon glyph={Icon.GLYPHS.upload} />
             </button>
@@ -150,18 +150,17 @@ const SidePanel = createReactClass({
             </When>
             <Otherwise>
               <div className={Styles.workbenchEmpty}>
-                <div>Your workbench is empty</div>
+                <div>工作台是空的</div>
                 <p>
-                  <strong>Click &apos;Add data&apos; above to:</strong>
+                  <strong>点击上方的 &apos;添加数据&apos; 按钮：</strong>
                 </p>
                 <ul>
-                  <li>Browse the Data Catalogue</li>
-                  <li>Load your own data onto the map</li>
+                  <li>浏览数据目录</li>
+                  <li>将自己的数据添加到地图上</li>
                 </ul>
                 <p>
                   <Icon glyph={Icon.GLYPHS.bulb} />
-                  <strong>TIP:</strong>{" "}
-                  <em>All your active data sets will be listed here</em>
+                  <strong>提示：</strong> <em>所有添加的数据都会展示在这里</em>
                 </p>
               </div>
             </Otherwise>

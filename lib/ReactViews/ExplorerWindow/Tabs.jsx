@@ -27,7 +27,7 @@ const Tabs = createReactClass({
     }
 
     const myDataTab = {
-      name: "My Data",
+      name: "我的数据",
       title: "my-data",
       category: "my-data",
       panel: (
@@ -63,7 +63,7 @@ const Tabs = createReactClass({
     } else {
       return [
         {
-          name: "Data Catalogue",
+          name: "数据目录",
           title: "data-catalog",
           category: "data-catalog",
           panel: (
@@ -71,7 +71,7 @@ const Tabs = createReactClass({
               terria={this.props.terria}
               viewState={this.props.viewState}
               items={this.props.terria.catalog.group.items}
-              searchPlaceholder="Search the catalogue"
+              searchPlaceholder="搜索目录"
             />
           )
         },

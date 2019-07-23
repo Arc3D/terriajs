@@ -86,7 +86,8 @@ const StandardUserInterface = createReactClass({
       this.props.terria.configParameters.storyEnabled &&
       this.props.terria.stories &&
       this.props.terria.stories.length &&
-      !this.props.viewState.storyShown
+      !this.props.viewState.storyShown &&
+      this.props.terria.configParameters.showStoryNotifications
     ) {
       this.props.viewState.notifications.push({
         title: "This map contains a story",
@@ -205,7 +206,7 @@ const StandardUserInterface = createReactClass({
                     terria={this.props.terria}
                     viewState={this.props.viewState}
                     minified={false}
-                    btnText="Show workbench"
+                    btnText="显示工作台"
                     animationDuration={animationDuration}
                   />
                 </div>

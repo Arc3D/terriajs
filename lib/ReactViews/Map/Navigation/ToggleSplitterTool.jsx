@@ -29,7 +29,7 @@ const ToggleSplitterTool = createReactClass({
         <button
           type="button"
           className={Styles.btn}
-          title="Enable side-by-side comparison between two different sets of data"
+          title="卷帘"
           onClick={this.handleClick}
         >
           <Icon

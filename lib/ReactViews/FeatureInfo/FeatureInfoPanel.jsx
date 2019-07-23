@@ -154,9 +154,9 @@ const FeatureInfoPanel = createReactClass({
         return "Click on the map to learn more about a location";
       }
       // if clicking on somewhere that has no data
-      return "No data is available here - try another location.";
+      return "这里没有数据 - 尝试其他位置。";
     } else {
-      return "Click 'Add Data' to add data to the map.";
+      return "点击“添加数据”将数据添加到地图中。";
     }
   },
 
@@ -220,7 +220,7 @@ const FeatureInfoPanel = createReactClass({
 
     return (
       <div className={Styles.location}>
-        <span>Lat / Lon&nbsp;</span>
+        <span>纬度/经度&nbsp;</span>
         <span>
           {pretty.latitude + ", " + pretty.longitude}
           {!this.props.printView && (
@@ -318,7 +318,7 @@ const FeatureInfoPanel = createReactClass({
               <div
                 className={classNames("drag-handle", Styles.btnPanelHeading)}
               >
-                <span>Feature Information</span>
+                <span>特征信息</span>
                 <button
                   type="button"
                   onClick={this.toggleCollapsed}
@@ -335,7 +335,7 @@ const FeatureInfoPanel = createReactClass({
                 type="button"
                 onClick={this.close}
                 className={Styles.btnCloseFeature}
-                title="Close data panel"
+                title="关闭数据面板"
               >
                 <Icon glyph={Icon.GLYPHS.close} />
               </button>

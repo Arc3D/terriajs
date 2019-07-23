@@ -27,7 +27,7 @@ const OpacitySection = createReactClass({
     return (
       <div className={Styles.opacity}>
         <label htmlFor="opacity">
-          Opacity: {parseInt(item.opacity * 100, 10)} %
+          不透明度：{parseInt(item.opacity * 100, 10)} %
         </label>
         <Slider
           className={Styles.opacitySlider}

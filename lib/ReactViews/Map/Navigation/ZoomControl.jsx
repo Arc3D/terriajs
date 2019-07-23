@@ -163,7 +163,7 @@ const ZoomControl = createReactClass({
               type="button"
               onClick={this.zoomIn}
               className={Styles.increase}
-              title="Zoom in"
+              title="放大"
             >
               <Icon glyph={Icon.GLYPHS.increase} />
             </button>
@@ -173,7 +173,7 @@ const ZoomControl = createReactClass({
               type="button"
               onClick={this.zoomReset}
               className={Styles.refresh}
-              title="Reset zoom"
+              title="重置"
             >
               <Icon glyph={Icon.GLYPHS.refresh} />
             </button>
@@ -183,7 +183,7 @@ const ZoomControl = createReactClass({
               type="button"
               onClick={this.zoomOut}
               className={Styles.decrease}
-              title="Zoom out"
+              title="缩小"
             >
               <Icon glyph={Icon.GLYPHS.decrease} />
             </button>

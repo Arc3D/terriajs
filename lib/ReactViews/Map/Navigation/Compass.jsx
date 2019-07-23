@@ -149,7 +149,7 @@ const Compass = createReactClass({
     };
 
     const description =
-      "Drag outer ring: rotate view.\nDrag inner gyroscope: free orbit.\nDouble-click: reset view.\nTIP: You can also free orbit by holding the CTRL key and dragging the map.";
+      "拖动外圈：旋转视图。\n拖动内部陀螺仪：自由旋转。\n双击：重置视图。\n提示：您也可以通过按住CTRL键并拖动地图来自由旋转。";
 
     return (
       <div
@@ -162,10 +162,7 @@ const Compass = createReactClass({
         <div className={Styles.outerRing} style={outerCircleStyle}>
           <Icon glyph={Icon.GLYPHS.compassOuter} />
         </div>
-        <div
-          className={Styles.innerRing}
-          title="Click and drag to rotate the camera"
-        >
+        <div className={Styles.innerRing} title="单击并拖动以旋转相机">
           <Icon glyph={Icon.GLYPHS.compassInner} />
         </div>
         <div className={Styles.rotationMarker} style={rotationMarkerStyle}>

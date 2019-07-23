@@ -312,24 +312,22 @@ const SharePanel = createReactClass({
           <Clipboard source={this.getShareUrlInput("dark")} id="share-url" />
         </div>
         <div className={DropdownStyles.section}>
-          <div>Print Map</div>
-          <div className={Styles.explanation}>
-            Open a printable version of this map.
-          </div>
+          <div>打印地图</div>
+          <div className={Styles.explanation}>打开一个可打印版本的地图。</div>
           <div>
             <button
               className={Styles.printButton}
               onClick={this.print}
               disabled={this.state.creatingPrintView}
             >
-              Print
+              打印
             </button>
             <button
               className={Styles.printButton}
               onClick={this.showPrintView}
               disabled={this.state.creatingPrintView}
             >
-              Show Print View
+              显示打印视图
             </button>
             <div className={Styles.printViewLoader}>
               {this.state.creatingPrintView && (
@@ -345,7 +343,7 @@ const SharePanel = createReactClass({
               onClick={this.toggleAdvancedOptions}
               className={Styles.btnAdvanced}
             >
-              <span>Advanced options</span>
+              <span>高级选项</span>
               {this.advancedIsOpen() ? (
                 <Icon glyph={Icon.GLYPHS.opened} />
               ) : (
@@ -356,7 +354,7 @@ const SharePanel = createReactClass({
           <If condition={this.advancedIsOpen()}>
             <div className={DropdownStyles.section}>
               <p className={Styles.paragraph}>
-                To embed, copy this code to embed this map into an HTML page:
+                请复制此代码以将此地图嵌入到HTML页面中：
               </p>
               <Input
                 large
@@ -382,7 +380,7 @@ const SharePanel = createReactClass({
                   ) : (
                     <Icon glyph={Icon.GLYPHS.checkboxOff} />
                   )}
-                  Shorten the share URL using a web service
+                  使用Web服务缩短共享URL
                 </button>
               </div>
             </If>
@@ -421,10 +419,8 @@ const SharePanel = createReactClass({
       icon: "share"
     };
 
-    const btnText = catalogShare ? "Share" : "Share / Print";
-    const btnTitle = catalogShare
-      ? "Share your catalogue with others"
-      : "Share your map with others";
+    const btnText = catalogShare ? "分享" : "分享 / 打印";
+    const btnTitle = catalogShare ? "分享数据目录" : "分享地图";
 
     return (
       <div>

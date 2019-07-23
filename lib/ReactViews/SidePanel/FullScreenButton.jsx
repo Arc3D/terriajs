@@ -84,16 +84,12 @@ const FullScreenButton = createReactClass({
           type="button"
           id="toggle-workbench"
           aria-label={
-            this.props.viewState.isMapFullScreen
-              ? "Show Workbench"
-              : "Hide Workbench"
+            this.props.viewState.isMapFullScreen ? "显示工作台" : "隐藏工作台"
           }
           onClick={this.toggleFullScreen}
           className={btnClassName}
           title={
-            this.props.viewState.isMapFullScreen
-              ? "Show Workbench"
-              : "Hide Workbench"
+            this.props.viewState.isMapFullScreen ? "显示工作台" : "隐藏工作台"
           }
         >
           {this.renderButtonText()}

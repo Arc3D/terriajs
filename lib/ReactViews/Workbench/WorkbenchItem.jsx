@@ -72,7 +72,7 @@ const WorkbenchItem = createReactClass({
               <button
                 type="button"
                 onClick={this.toggleVisibility}
-                title="Data show/hide"
+                title="显示或隐藏数据"
                 className={Styles.btnVisibility}
               >
                 {workbenchItem.isShown ? (
