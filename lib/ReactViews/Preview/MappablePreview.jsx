@@ -65,9 +65,7 @@ const MappablePreview = createReactClass({
           onClick={this.toggleOnMap}
           className={Styles.btnAdd}
         >
-          {this.props.previewed.isEnabled
-            ? "Remove from the map"
-            : "Add to the map"}
+          {this.props.previewed.isEnabled ? "从地图上移除" : "添加到地图"}
         </button>
         <div className={Styles.previewedInfo}>
           <div

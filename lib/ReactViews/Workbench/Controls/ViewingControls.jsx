@@ -124,10 +124,10 @@ const ViewingControls = createReactClass({
             <button
               type="button"
               onClick={this.zoomTo}
-              title="Zoom to extent"
+              title="缩放到范围"
               className={Styles.btn}
             >
-              Zoom To Extent
+              缩放
             </button>
           </li>
           <span className={Styles.separator} />
@@ -139,10 +139,10 @@ const ViewingControls = createReactClass({
             <button
               type="button"
               onClick={this.openFeature}
-              title="Zoom to data"
+              title="缩放到数据"
               className={Styles.btn}
             >
-              Zoom To
+              缩放
             </button>
           </li>
           <span className={Styles.separator} />
@@ -153,9 +153,9 @@ const ViewingControls = createReactClass({
               type="button"
               onClick={this.previewItem}
               className={Styles.btn}
-              title="info"
+              title="关于这个数据"
             >
-              About This Data
+              关于
             </button>
           </li>
           <span className={Styles.separator} />
@@ -165,10 +165,10 @@ const ViewingControls = createReactClass({
             <button
               type="button"
               onClick={this.splitItem}
-              title="Duplicate and show splitter"
+              title="复制并显示卷帘器"
               className={Styles.btn}
             >
-              Split
+              卷帘
             </button>
           </li>
           <span className={Styles.separator} />
@@ -179,9 +179,9 @@ const ViewingControls = createReactClass({
               type="button"
               onClick={this.exportData}
               className={Styles.btn}
-              title="Export map data"
+              title="导出地图数据"
             >
-              Export
+              导出
             </button>
           </li>
           <span className={Styles.separator} />
@@ -190,10 +190,10 @@ const ViewingControls = createReactClass({
           <button
             type="button"
             onClick={this.removeFromMap}
-            title="Remove this data"
+            title="移除这个数据"
             className={Styles.btn}
           >
-            Remove <Icon glyph={Icon.GLYPHS.remove} />
+            移除 <Icon glyph={Icon.GLYPHS.remove} />
           </button>
         </li>
       </ul>

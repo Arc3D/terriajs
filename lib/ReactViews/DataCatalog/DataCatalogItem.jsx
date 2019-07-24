@@ -10,10 +10,10 @@ import ObserveModelMixin from "../ObserveModelMixin";
 import raiseErrorOnRejectedPromise from "../../Models/raiseErrorOnRejectedPromise";
 
 const STATE_TO_TITLE = {
-  loading: "Loading...",
-  remove: "Remove from map",
-  add: 'Add this item. Hold down "shift" to keep the data catalogue open.',
-  trash: "Remove from catalogue"
+  loading: "加载中...",
+  remove: "从地图中删除",
+  add: '添加此数据，按住"shift"以保持数据目录打开',
+  trash: "从数据目录中删除"
 };
 
 // Individual dataset

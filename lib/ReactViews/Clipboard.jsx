@@ -60,9 +60,9 @@ export default class Clipboard extends React.Component {
 
     return (
       <div className={Styles.clipboard}>
-        <div className={Styles.title}>Share URL</div>
+        <div className={Styles.title}>分享链接</div>
         <div className={Styles.explanation}>
-          Anyone with this URL will be able to access this map.
+          任何拥有此链接的人都可以访问此地图。
         </div>
         <div className={Styles.clipboardBody}>
           {this.props.source}
@@ -70,7 +70,7 @@ export default class Clipboard extends React.Component {
             className={classNames(`btn-copy-${this.props.id}`, Styles.copyBtn)}
             data-clipboard-target={`#${this.props.id}`}
           >
-            Copy
+            拷贝
           </button>
         </div>
         {this.state.tooltip && (

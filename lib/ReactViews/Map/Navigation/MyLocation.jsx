@@ -62,8 +62,8 @@ const MyLocation = createReactClass({
       this.props.terria.error.raiseEvent(
         new TerriaError({
           sender: this,
-          title: "Error getting location",
-          message: "Your browser cannot provide your location."
+          title: "定位失败",
+          message: "您的浏览器不能提供您的位置。"
         })
       );
     }
@@ -137,7 +137,7 @@ const MyLocation = createReactClass({
     this.props.terria.error.raiseEvent(
       new TerriaError({
         sender: this,
-        title: "Error getting location",
+        title: "定位失败",
         message: message
       })
     );
@@ -185,7 +185,7 @@ const MyLocation = createReactClass({
         <button
           type="button"
           className={toggleStyle}
-          title="Centre map at your current location"
+          title="定位您的位置"
           onClick={this.handleCick}
         >
           <Icon glyph={Icon.GLYPHS.geolocation} />

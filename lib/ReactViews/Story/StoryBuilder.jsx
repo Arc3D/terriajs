@@ -157,12 +157,11 @@ const StoryBuilder = createReactClass({
   renderIntro() {
     return (
       <div className={Styles.intro}>
-        <Icon glyph={Icon.GLYPHS.story} />{" "}
-        <strong>This is your story editor</strong>
+        <Icon glyph={Icon.GLYPHS.story} /> <strong>这是地图故事编辑器</strong>
         <div className={Styles.instructions}>
-          <p>1. Capture scenes from your map</p>
-          <p>2. Add text and images</p>
-          <p>3. Share with others</p>
+          <p>1. 从地图中捕获场景</p>
+          <p>2. 添加文字和图片</p>
+          <p>3. 分享给他人</p>
         </div>
       </div>
     );
@@ -253,7 +252,7 @@ const StoryBuilder = createReactClass({
               onClick={this.onClickCapture}
             >
               {" "}
-              <Icon glyph={Icon.GLYPHS.story} /> Capture Scene{" "}
+              <Icon glyph={Icon.GLYPHS.story} /> 捕获场景{" "}
             </button>
           </div>
         </div>

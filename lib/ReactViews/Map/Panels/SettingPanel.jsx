@@ -14,8 +14,8 @@ import Styles from "./setting-panel.scss";
 import DropdownStyles from "./panel.scss";
 
 const viewerModeLabels = {
-  [ViewerMode.CesiumTerrain]: "3D Terrain",
-  [ViewerMode.CesiumEllipsoid]: "3D Smooth",
+  [ViewerMode.CesiumTerrain]: "3D地形",
+  [ViewerMode.CesiumEllipsoid]: "3D平球",
   [ViewerMode.Leaflet]: "2D"
 };
 
@@ -114,13 +114,13 @@ const SettingPanel = createReactClass({
     return (
       <MenuPanel
         theme={dropdownTheme}
-        btnTitle="Change view"
-        btnText="Map"
+        btnTitle="改变视图"
+        btnText="地图"
         viewState={this.props.viewState}
         smallScreen={this.props.viewState.useSmallScreenInterface}
       >
         <div className={classNames(Styles.viewer, DropdownStyles.section)}>
-          <label className={DropdownStyles.heading}> Map View </label>
+          <label className={DropdownStyles.heading}> 地图视图 </label>
           <ul className={Styles.viewerSelector}>
             <For each="viewerMode" of={viewerModes}>
               <li key={viewerMode} className={Styles.listItem}>
@@ -137,7 +137,7 @@ const SettingPanel = createReactClass({
           </ul>
         </div>
         <div className={classNames(Styles.baseMap, DropdownStyles.section)}>
-          <label className={DropdownStyles.heading}> Base Map </label>
+          <label className={DropdownStyles.heading}> 底图 </label>
           <label className={DropdownStyles.subHeading}>
             {this.state.activeMap}
           </label>

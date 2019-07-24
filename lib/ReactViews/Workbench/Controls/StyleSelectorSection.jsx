@@ -68,8 +68,7 @@ const StyleSelectorSection = createReactClass({
       return null;
     }
 
-    const label =
-      item.layers.indexOf(",") >= 0 ? layer.title + " Style" : "Style";
+    const label = item.layers.indexOf(",") >= 0 ? layer.title + "样式" : "样式";
 
     return (
       <div key={layer.name}>

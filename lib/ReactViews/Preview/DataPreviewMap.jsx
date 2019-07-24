@@ -125,7 +125,7 @@ const DataPreviewMap = createReactClass({
     this.lastPreviewedCatalogItem = previewedCatalogItem;
 
     this.setState({
-      previewBadgeText: "DATA PREVIEW LOADING..."
+      previewBadgeText: "数据预览加载中..."
     });
 
     this.isZoomedToExtent = false;
@@ -182,20 +182,20 @@ const DataPreviewMap = createReactClass({
 
               if (this._errorPreviewingCatalogItem) {
                 this.setState({
-                  previewBadgeText: "NO PREVIEW AVAILABLE"
+                  previewBadgeText: "预览不可用"
                 });
               } else if (that.removePreviewFromMap) {
                 this.setState({
-                  previewBadgeText: "DATA PREVIEW"
+                  previewBadgeText: "数据预览"
                 });
               } else {
                 this.setState({
-                  previewBadgeText: "NO PREVIEW AVAILABLE"
+                  previewBadgeText: "预览不可用"
                 });
               }
             } else {
               this.setState({
-                previewBadgeText: "NO PREVIEW AVAILABLE"
+                previewBadgeText: "预览不可用"
               });
             }
 
@@ -206,7 +206,7 @@ const DataPreviewMap = createReactClass({
           console.error(err);
 
           this.setState({
-            previewBadgeText: "DATA PREVIEW ERROR"
+            previewBadgeText: "数据预览错误"
           });
         });
     }

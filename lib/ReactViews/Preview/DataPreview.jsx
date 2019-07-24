@@ -80,10 +80,10 @@ const DataPreview = createReactClass({
           </When>
           <Otherwise>
             <div className={Styles.placeholder}>
-              <p>Select a dataset to see a preview</p>
-              <p>- OR -</p>
+              <p>选择数据集以查看预览</p>
+              <p>- 或者 -</p>
               <button className={Styles.btnBackToMap} onClick={this.backToMap}>
-                Go to the map
+                回到地图视图
               </button>
             </div>
           </Otherwise>

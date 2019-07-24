@@ -50,9 +50,9 @@ const LeftRightSection = createReactClass({
           className={classNames(Styles.goLeft, {
             [Styles.isActive]: splitDirection === ImagerySplitDirection.LEFT
           })}
-          title="Show on the left side"
+          title="显示左侧"
         >
-          Left
+          左侧
         </button>
         <button
           type="button"
@@ -60,9 +60,9 @@ const LeftRightSection = createReactClass({
           className={classNames(Styles.goBoth, {
             [Styles.isActive]: splitDirection === ImagerySplitDirection.NONE
           })}
-          title="Show on both sides"
+          title="显示两侧"
         >
-          Both
+          两侧
         </button>
         <button
           type="button"
@@ -70,9 +70,9 @@ const LeftRightSection = createReactClass({
           className={classNames(Styles.goRight, {
             [Styles.isActive]: splitDirection === ImagerySplitDirection.RIGHT
           })}
-          title="Show on the right side"
+          title="显示右侧"
         >
-          Right
+          右侧
         </button>
       </div>
     );
