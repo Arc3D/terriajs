@@ -139,10 +139,10 @@ const AddData = createReactClass({
     return (
       <div className={Styles.tabPanels}>
         <If condition={this.props.activeTab === "local"}>
-          <div className={Styles.tabHeading}>Add local file</div>
+          <div className={Styles.tabHeading}>添加本地文件</div>
           <section className={Styles.tabPanel}>
             <label className={Styles.label}>
-              <strong>Step 1:</strong> Select file type (optional)
+              <strong>步骤1：</strong> 选择文件类型（可选项）
             </label>
             <Dropdown
               options={localDataType}
@@ -152,7 +152,7 @@ const AddData = createReactClass({
               theme={dropdownTheme}
             />
             <label className={Styles.label}>
-              <strong>Step 2:</strong> Select file
+              <strong>步骤2：</strong> 选择文件
             </label>
             <FileInput
               accept={dataTypes.join(",")}
@@ -162,10 +162,10 @@ const AddData = createReactClass({
           </section>
         </If>
         <If condition={this.props.activeTab === "web"}>
-          <div className={Styles.tabHeading}>Add web data</div>
+          <div className={Styles.tabHeading}>添加网络数据</div>
           <section className={Styles.tabPanel}>
             <label className={Styles.label}>
-              <strong>Step 1:</strong> Select file type (optional)
+              <strong>步骤1：</strong> 选择数据类型（可选项）
             </label>
             <Dropdown
               options={remoteDataType}
@@ -175,8 +175,7 @@ const AddData = createReactClass({
               theme={dropdownTheme}
             />
             <label className={Styles.label}>
-              <strong>Step 2:</strong> Enter the URL of the data file or web
-              service
+              <strong>步骤2：</strong> 输入数据的网络路径 service
             </label>
             <form className={Styles.urlInput}>
               <input
@@ -184,14 +183,14 @@ const AddData = createReactClass({
                 onChange={this.onRemoteUrlChange}
                 className={Styles.urlInputTextBox}
                 type="text"
-                placeholder="e.g. http://data.gov.au/geoserver/wms"
+                placeholder="例如 http://localhost:8080/geoserver/wms"
               />
               <button
                 type="submit"
                 onClick={this.handleUrl}
                 className={Styles.urlInputBtn}
               >
-                Add
+                添加
               </button>
               {this.state.isLoading && <Loader />}
             </form>

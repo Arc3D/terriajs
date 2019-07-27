@@ -118,7 +118,7 @@ const MyDataTab = createReactClass({
               className={Styles.btnBackToMyData}
             >
               <Icon glyph={Icon.GLYPHS.left} />
-              Back
+              返回
             </button>
             <AddData
               terria={this.props.terria}

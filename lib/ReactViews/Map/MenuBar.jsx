@@ -89,14 +89,7 @@ const MenuBar = createReactClass({
                 <span>地图故事</span>
               </button>
               {storyEnabled &&
-                this.props.viewState.featurePrompts.indexOf("story") >= 0 && (
-                  <Prompt
-                    content={promptHtml}
-                    displayDelay={delayTime}
-                    dismissText={"Got it, thanks!"}
-                    dismissAction={this.dismissAction}
-                  />
-                )}
+                this.props.viewState.featurePrompts.indexOf("story") >= 0}
             </li>
           </If>
           <li className={Styles.menuItem}>

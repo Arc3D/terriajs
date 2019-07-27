@@ -8,10 +8,10 @@ import defaultValue from "terriajs-cesium/Source/Core/defaultValue";
 import Styles from "./data-catalog-item.scss";
 
 const STATE_TO_TITLE = {
-  loading: "Loading...",
-  remove: "Remove",
-  add: "Add",
-  trash: "Remove from catalogue"
+  loading: "加载中...",
+  remove: "移除",
+  add: "添加",
+  trash: "从目录中移除"
 };
 
 const STATE_TO_ICONS = {

@@ -15,7 +15,7 @@ const FileInput = createReactClass({
 
   getInitialState() {
     return {
-      value: "Browse...",
+      value: "浏览...",
       hovered: false
     };
   },
@@ -47,7 +47,7 @@ const FileInput = createReactClass({
             [Styles.btnHover]: this.state.hovered
           })}
         >
-          {this.state.value ? this.state.value : "Browse..."}
+          {this.state.value ? this.state.value : "浏览..."}
         </label>
       </form>
     );

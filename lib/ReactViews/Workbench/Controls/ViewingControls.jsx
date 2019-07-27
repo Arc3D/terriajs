@@ -127,7 +127,7 @@ const ViewingControls = createReactClass({
               title="缩放到范围"
               className={Styles.btn}
             >
-              缩放
+              缩放到
             </button>
           </li>
           <span className={Styles.separator} />
@@ -142,7 +142,7 @@ const ViewingControls = createReactClass({
               title="缩放到数据"
               className={Styles.btn}
             >
-              缩放
+              缩放到
             </button>
           </li>
           <span className={Styles.separator} />
