@@ -182,12 +182,11 @@ const StoryBuilder = createReactClass({
   renderIntro() {
     return (
       <div className={Styles.intro}>
-        <Icon glyph={Icon.GLYPHS.story} /> <strong>ÕâÊÇµØÍ¼¹ÊÊÂ±à¼­Æ÷</strong>
+        <Icon glyph={Icon.GLYPHS.story} /> <strong>è¿™æ˜¯åœ°å›¾æ•…äº‹ç¼–è¾‘å™¨</strong>
         <div className={Styles.instructions}>
-          <p>3. Share with others</p>
-          <p>1. ´ÓµØÍ¼ÖĞ²¶»ñ³¡¾°</p>
-          <p>2. Ìí¼ÓÎÄ×ÖºÍÍ¼Æ¬</p>
-          <p>3. ·ÖÏí¸øËûÈË</p>
+          <p>1. ä»åœ°å›¾ä¸­æ•è·åœºæ™¯</p>
+          <p>2. æ·»åŠ æ–‡å­—å’Œå›¾ç‰‡</p>
+          <p>3. åˆ†äº«ç»™ä»–äºº</p>
         </div>
       </div>
     );
@@ -310,7 +309,8 @@ const StoryBuilder = createReactClass({
               onClick={this.onClickCapture}
             >
               {" "}
-              <Icon glyph={Icon.GLYPHS.story} /> ²¶»ñ³¡¾°{" "}
+              <Icon glyph={Icon.GLYPHS.story} />
+              æ•è·åœºæ™¯{" "}
             </button>
           </div>
         </div>
