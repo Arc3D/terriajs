@@ -13,6 +13,7 @@ import createGuid from "terriajs-cesium/Source/Core/createGuid";
 import classNames from "classnames";
 import BadgeBar from "../BadgeBar.jsx";
 import triggerResize from "../../Core/triggerResize";
+import Loader from "../Loader";
 import Styles from "./story-builder.scss";
 
 const StoryBuilder = createReactClass({
@@ -29,7 +30,9 @@ const StoryBuilder = createReactClass({
     return {
       editingMode: false,
       currentStory: undefined,
-      recaptureSuccessFul: undefined
+      recaptureSuccessful: undefined,
+      showVideoGuide: false, // for whether to actually render `renderVideoGuide()`
+      videoGuideVisible: false // for animating
     };
   },
 
@@ -89,6 +92,28 @@ const StoryBuilder = createReactClass({
     }
   },
 
+  toggleVideoGuide() {
+    const showVideoGuide = this.state.showVideoGuide;
+    // If not enabled
+    if (!showVideoGuide) {
+      this.setState({
+        showVideoGuide: !showVideoGuide,
+        videoGuideVisible: true
+      });
+    }
+    // Otherwise we immediately trigger exit animations, then close it 300ms later
+    if (showVideoGuide) {
+      this.slideOutTimer = this.setState({
+        videoGuideVisible: false
+      });
+      setTimeout(() => {
+        this.setState({
+          showVideoGuide: !showVideoGuide
+        });
+      }, 300);
+    }
+  },
+
   recaptureScene(story) {
     clearTimeout(this.resetReCaptureStatus);
     const storyIndex = (this.props.terria.stories || [])
@@ -108,7 +133,7 @@ const StoryBuilder = createReactClass({
         ...this.props.terria.stories.slice(storyIndex + 1)
       ];
       this.setState({
-        recaptureSuccessFul: story.id
+        recaptureSuccessful: story.id
       });
 
       setTimeout(this.resetReCaptureStatus, 2000);
@@ -119,7 +144,7 @@ const StoryBuilder = createReactClass({
 
   resetReCaptureStatus() {
     this.setState({
-      recaptureSuccessFul: undefined
+      recaptureSuccessful: undefined
     });
   },
 
@@ -157,11 +182,43 @@ const StoryBuilder = createReactClass({
   renderIntro() {
     return (
       <div className={Styles.intro}>
-        <Icon glyph={Icon.GLYPHS.story} /> <strong>è¿™æ˜¯åœ°å›¾æ•…äº‹ç¼–è¾‘å™¨</strong>
+        <Icon glyph={Icon.GLYPHS.story} /> <strong>ÕâÊÇµØÍ¼¹ÊÊÂ±à¼­Æ÷</strong>
         <div className={Styles.instructions}>
-          <p>1. ä»åœ°å›¾ä¸­æ•è·åœºæ™¯</p>
-          <p>2. æ·»åŠ æ–‡å­—å’Œå›¾ç‰‡</p>
-          <p>3. åˆ†äº«ç»™ä»–äºº</p>
+          <p>3. Share with others</p>
+          <p>1. ´ÓµØÍ¼ÖĞ²¶»ñ³¡¾°</p>
+          <p>2. Ìí¼ÓÎÄ×ÖºÍÍ¼Æ¬</p>
+          <p>3. ·ÖÏí¸øËûÈË</p>
+        </div>
+      </div>
+    );
+  },
+
+  renderVideoGuide() {
+    return (
+      <div
+        className={classNames({
+          [Styles.videoGuideWrapper]: true,
+          [Styles.videoGuideWrapperClosing]: !this.state.videoGuideVisible
+        })}
+        onClick={this.toggleVideoGuide}
+      >
+        <div
+          className={Styles.videoGuide}
+          onClick={e => e.stopPropagation()}
+          style={{
+            backgroundImage: `url(${require("../../../wwwroot/images/data-stories-getting-started.jpg")})`
+          }}
+        >
+          <div className={Styles.videoGuideRatio}>
+            <div className={Styles.videoGuideLoading}>
+              <Loader message={` `} />
+            </div>
+            <iframe
+              className={Styles.videoGuideIframe}
+              src="https://www.youtube.com/embed/fbiQawV8IYY"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </div>
         </div>
       </div>
     );
@@ -200,7 +257,7 @@ const StoryBuilder = createReactClass({
               deleteStory={this.removeStory.bind(this, index)}
               recaptureStory={this.recaptureScene}
               recaptureStorySuccessful={Boolean(
-                story.id === this.state.recaptureSuccessFul
+                story.id === this.state.recaptureSuccessful
               )}
               viewStory={this.viewStory.bind(this, index)}
               menuOpen={this.state.storyWithOpenMenu === story}
@@ -231,6 +288,7 @@ const StoryBuilder = createReactClass({
     });
     return (
       <div className={className}>
+        {this.state.showVideoGuide && this.renderVideoGuide()}
         <div className={Styles.header}>
           {!hasStories && this.renderIntro()}
           <div className={Styles.actions}>
@@ -252,7 +310,7 @@ const StoryBuilder = createReactClass({
               onClick={this.onClickCapture}
             >
               {" "}
-              <Icon glyph={Icon.GLYPHS.story} /> æ•è·åœºæ™¯{" "}
+              <Icon glyph={Icon.GLYPHS.story} /> ²¶»ñ³¡¾°{" "}
             </button>
           </div>
         </div>
