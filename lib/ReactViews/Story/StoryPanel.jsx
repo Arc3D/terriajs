@@ -148,18 +148,14 @@ const StoryPanel = createReactClass({
     const locationBtn = (
       <button
         className={Styles.locationBtn}
-        title="center scene"
+        title="定位"
         onClick={this.onCenterScene.bind(this, story)}
       >
         <Icon glyph={Icon.GLYPHS.location} />
       </button>
     );
     const exitBtn = (
-      <button
-        className={Styles.exitBtn}
-        title="exit story"
-        onClick={this.slideOut}
-      >
+      <button className={Styles.exitBtn} title="退出" onClick={this.slideOut}>
         <Icon glyph={Icon.GLYPHS.close} />
       </button>
     );
@@ -194,7 +190,7 @@ const StoryPanel = createReactClass({
                 <button
                   className={Styles.previousBtn}
                   disabled={this.props.terria.stories.length <= 1}
-                  title="go to previous scene"
+                  title="上一个场景"
                   onClick={this.goToPrevStory}
                 >
                   <Icon glyph={Icon.GLYPHS.left} />
@@ -216,7 +212,7 @@ const StoryPanel = createReactClass({
                       {" "}
                       {stories.map((story, i) => (
                         <button
-                          title={`go to story ${story.title}`}
+                          title={`到故事 ${story.title}`}
                           type="button"
                           key={story.id}
                           onClick={() => this.navigateStory(i)}
@@ -247,7 +243,7 @@ const StoryPanel = createReactClass({
                 <button
                   disabled={this.props.terria.stories.length <= 1}
                   className={Styles.nextBtn}
-                  title="go to next scene"
+                  title="下一个场景"
                   onClick={this.goToNextStory}
                 >
                   <Icon glyph={Icon.GLYPHS.right} />
@@ -259,7 +255,7 @@ const StoryPanel = createReactClass({
                 {" "}
                 {stories.map((story, i) => (
                   <button
-                    title={`go to story ${story.title}`}
+                    title={`到故事 ${story.title}`}
                     type="button"
                     key={story.id}
                     className={classNames(Styles.mobileNavBtn, {

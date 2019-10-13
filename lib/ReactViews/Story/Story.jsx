@@ -92,7 +92,7 @@ class Story extends React.Component {
               title="view"
               onClick={this.viewStory}
             >
-              View
+              查看
             </button>
           </li>
           <li>
@@ -102,7 +102,7 @@ class Story extends React.Component {
               title="edit"
               onClick={this.editStory}
             >
-              Edit
+              编辑
             </button>
           </li>
           <li>
@@ -115,7 +115,7 @@ class Story extends React.Component {
               title="re-capture"
               onClick={this.recaptureStory}
             >
-              Recapture
+              重新捕获
             </button>
           </li>
           <li>
@@ -125,7 +125,7 @@ class Story extends React.Component {
               title="delete"
               onClick={this.deleteStory}
             >
-              Delete
+              删除
             </button>
           </li>
         </ul>

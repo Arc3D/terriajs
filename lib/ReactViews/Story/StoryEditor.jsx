@@ -145,7 +145,7 @@ export default class StoryEditor extends React.Component {
           <div className={Styles.header}>
             <input
               ref={titleInput => (this.titleInput = titleInput)}
-              placeholder="Enter a title here"
+              placeholder="输入一个标题"
               autoComplete="off"
               className={Styles.field}
               type="text"
@@ -157,7 +157,7 @@ export default class StoryEditor extends React.Component {
               className={Styles.cancelBtn}
               onClick={this.cancelEditing}
               type="button"
-              title="cancel"
+              title="取消"
             >
               Cancel
             </button>
@@ -166,7 +166,7 @@ export default class StoryEditor extends React.Component {
               className={Styles.saveBtn}
               onClick={this.saveStory}
               type="button"
-              title="save"
+              title="保存"
             >
               Save
             </button>

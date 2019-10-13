@@ -237,13 +237,13 @@ const StoryBuilder = createReactClass({
     });
     return (
       <div className={className}>
-        <BadgeBar label="Scenes" badge={this.props.terria.stories.length}>
+        <BadgeBar label="场景" badge={this.props.terria.stories.length}>
           <button
             type="button"
             onClick={this.removeAllStories}
             className={Styles.removeButton}
           >
-            Remove All <Icon glyph={Icon.GLYPHS.remove} />
+            移除所有 <Icon glyph={Icon.GLYPHS.remove} />
           </button>
         </BadgeBar>
 
@@ -296,16 +296,16 @@ const StoryBuilder = createReactClass({
                 disabled={this.state.editingMode || !hasStories}
                 className={Styles.previewBtn}
                 onClick={this.runStories}
-                title="preview stories"
+                title="播放地图故事"
               >
                 <Icon glyph={Icon.GLYPHS.play} />
-                Play Story
+                播放
               </button>
             )}
             <button
               disabled={this.state.editingMode}
               className={Styles.captureBtn}
-              title="capture current scene"
+              title="捕获当前场景"
               onClick={this.onClickCapture}
             >
               {" "}

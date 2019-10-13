@@ -25,7 +25,7 @@ const DataCatalogTab = createReactClass({
 
   getDefaultProps() {
     return {
-      searchPlaceholder: "Search the catalogue" // Let SearchBox set the default placeholder
+      searchPlaceholder: "搜索目录" // Let SearchBox set the default placeholder
     };
   },
 
