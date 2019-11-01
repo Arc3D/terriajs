@@ -115,7 +115,7 @@ const MobileModalWindow = createReactClass({
                 className={Styles.doneButton}
                 onClick={this.onClearMobileUI}
               >
-                Done
+                完成
               </button>
             </If>
             <button

@@ -135,7 +135,7 @@ const MobileHeader = createReactClass({
                     (this.props.viewState.mobileMenuVisible = true)
                   }
                   className={Styles.btnMenu}
-                  title="toggle navigation"
+                  title="菜单"
                 >
                   <Icon glyph={Icon.GLYPHS.menu} />
                 </button>
@@ -150,7 +150,7 @@ const MobileHeader = createReactClass({
                   className={Styles.btnAdd}
                   onClick={this.onMobileDataCatalogClicked}
                 >
-                  Data
+                  数据
                   <Icon glyph={Icon.GLYPHS.increase} />
                 </button>
                 <If condition={nowViewingLength > 0}>
@@ -197,7 +197,7 @@ const MobileHeader = createReactClass({
                       searchText={searchState.catalogSearchText}
                       onSearchTextChanged={this.changeCatalogSearchText}
                       onDoSearch={this.searchCatalog}
-                      placeholder="Search the catalogue"
+                      placeholder="搜索目录"
                       onClear={this.closeCatalogSearch}
                       autoFocus={true}
                     />

@@ -1,24 +1,25 @@
 "use strict";
 
+import classNames from "classnames";
+import createReactClass from "create-react-class";
+import PropTypes from "prop-types";
+import React from "react";
+import defined from "terriajs-cesium/Source/Core/defined";
+import printWindow from "../../../../Core/printWindow";
+import Clipboard from "../../../Clipboard";
+import Icon from "../../../Icon.jsx";
+import Loader from "../../../Loader";
+import ObserverModelMixin from "../../../ObserveModelMixin";
+import MenuPanel from "../../../StandardUserInterface/customizable/MenuPanel.jsx";
+import Input from "../../../Styled/Input/Input.jsx";
+import DropdownStyles from "../panel.scss";
 import {
+  addUserAddedCatalog,
   buildShareLink,
   buildShortShareLink,
   canShorten
 } from "./BuildShareLink";
-import classNames from "classnames";
-import Clipboard from "../../../Clipboard";
-import createReactClass from "create-react-class";
-import defined from "terriajs-cesium/Source/Core/defined";
-import DropdownStyles from "../panel.scss";
-import Icon from "../../../Icon.jsx";
-import Input from "../../../Styled/Input/Input.jsx";
-import Loader from "../../../Loader";
-import MenuPanel from "../../../StandardUserInterface/customizable/MenuPanel.jsx";
-import ObserverModelMixin from "../../../ObserveModelMixin";
 import PrintView from "./PrintView";
-import printWindow from "../../../../Core/printWindow";
-import PropTypes from "prop-types";
-import React from "react";
 import Styles from "./share-panel.scss";
 
 const SharePanel = createReactClass({
@@ -271,6 +272,49 @@ const SharePanel = createReactClass({
     );
   },
 
+  onAddWebDataClicked() {
+    this.setState({
+      isOpen: false
+    });
+    this.props.viewState.openUserData();
+  },
+
+  renderWarning() {
+    // Generate share data for user added catalog, then throw that away and use the returned
+    //  "rejected" items to display a disclaimer about what can't be shared
+    const unshareableItems = addUserAddedCatalog(this.props.terria, []);
+    return (
+      <If condition={unshareableItems.length > 0}>
+        <div className={Styles.warning}>
+          <p className={Styles.paragraph}>
+            <strong>Note:</strong>
+          </p>
+          <p className={Styles.paragraph}>
+            The following data sources will NOT be shared because they include
+            data from this local system. To share these data sources, publish
+            their data on a web server and{" "}
+            <a
+              className={Styles.warningLink}
+              onClick={this.onAddWebDataClicked}
+            >
+              add them using a url
+            </a>
+            .
+          </p>
+          <ul className={Styles.paragraph}>
+            {unshareableItems.map((item, i) => {
+              return (
+                <li key={i}>
+                  <strong>{item.name}</strong>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </If>
+    );
+  },
+
   renderContent() {
     if (this.props.catalogShare) {
       return this.renderContentForCatalogShare();
@@ -293,6 +337,7 @@ const SharePanel = createReactClass({
               source={this.getShareUrlInput("light")}
               id="share-url"
             />
+            {this.renderWarning()}
           </div>
         </Otherwise>
       </Choose>
@@ -310,6 +355,7 @@ const SharePanel = createReactClass({
       <div>
         <div className={DropdownStyles.section}>
           <Clipboard source={this.getShareUrlInput("dark")} id="share-url" />
+          {this.renderWarning()}
         </div>
         <div className={DropdownStyles.section}>
           <div>打印地图</div>

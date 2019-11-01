@@ -13,6 +13,7 @@ import createGuid from "terriajs-cesium/Source/Core/createGuid";
 import classNames from "classnames";
 import BadgeBar from "../BadgeBar.jsx";
 import triggerResize from "../../Core/triggerResize";
+import Loader from "../Loader";
 import Styles from "./story-builder.scss";
 
 const StoryBuilder = createReactClass({
@@ -29,7 +30,9 @@ const StoryBuilder = createReactClass({
     return {
       editingMode: false,
       currentStory: undefined,
-      recaptureSuccessFul: undefined
+      recaptureSuccessful: undefined,
+      showVideoGuide: false, // for whether to actually render `renderVideoGuide()`
+      videoGuideVisible: false // for animating
     };
   },
 
@@ -89,6 +92,28 @@ const StoryBuilder = createReactClass({
     }
   },
 
+  toggleVideoGuide() {
+    const showVideoGuide = this.state.showVideoGuide;
+    // If not enabled
+    if (!showVideoGuide) {
+      this.setState({
+        showVideoGuide: !showVideoGuide,
+        videoGuideVisible: true
+      });
+    }
+    // Otherwise we immediately trigger exit animations, then close it 300ms later
+    if (showVideoGuide) {
+      this.slideOutTimer = this.setState({
+        videoGuideVisible: false
+      });
+      setTimeout(() => {
+        this.setState({
+          showVideoGuide: !showVideoGuide
+        });
+      }, 300);
+    }
+  },
+
   recaptureScene(story) {
     clearTimeout(this.resetReCaptureStatus);
     const storyIndex = (this.props.terria.stories || [])
@@ -108,7 +133,7 @@ const StoryBuilder = createReactClass({
         ...this.props.terria.stories.slice(storyIndex + 1)
       ];
       this.setState({
-        recaptureSuccessFul: story.id
+        recaptureSuccessful: story.id
       });
 
       setTimeout(this.resetReCaptureStatus, 2000);
@@ -119,7 +144,7 @@ const StoryBuilder = createReactClass({
 
   resetReCaptureStatus() {
     this.setState({
-      recaptureSuccessFul: undefined
+      recaptureSuccessful: undefined
     });
   },
 
@@ -167,6 +192,37 @@ const StoryBuilder = createReactClass({
     );
   },
 
+  renderVideoGuide() {
+    return (
+      <div
+        className={classNames({
+          [Styles.videoGuideWrapper]: true,
+          [Styles.videoGuideWrapperClosing]: !this.state.videoGuideVisible
+        })}
+        onClick={this.toggleVideoGuide}
+      >
+        <div
+          className={Styles.videoGuide}
+          onClick={e => e.stopPropagation()}
+          style={{
+            backgroundImage: `url(${require("../../../wwwroot/images/data-stories-getting-started.jpg")})`
+          }}
+        >
+          <div className={Styles.videoGuideRatio}>
+            <div className={Styles.videoGuideLoading}>
+              <Loader message={` `} />
+            </div>
+            <iframe
+              className={Styles.videoGuideIframe}
+              src="https://www.youtube.com/embed/fbiQawV8IYY"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  },
+
   openMenu(story) {
     this.setState({
       storyWithOpenMenu: story
@@ -181,13 +237,13 @@ const StoryBuilder = createReactClass({
     });
     return (
       <div className={className}>
-        <BadgeBar label="Scenes" badge={this.props.terria.stories.length}>
+        <BadgeBar label="场景" badge={this.props.terria.stories.length}>
           <button
             type="button"
             onClick={this.removeAllStories}
             className={Styles.removeButton}
           >
-            Remove All <Icon glyph={Icon.GLYPHS.remove} />
+            移除所有 <Icon glyph={Icon.GLYPHS.remove} />
           </button>
         </BadgeBar>
 
@@ -200,7 +256,7 @@ const StoryBuilder = createReactClass({
               deleteStory={this.removeStory.bind(this, index)}
               recaptureStory={this.recaptureScene}
               recaptureStorySuccessful={Boolean(
-                story.id === this.state.recaptureSuccessFul
+                story.id === this.state.recaptureSuccessful
               )}
               viewStory={this.viewStory.bind(this, index)}
               menuOpen={this.state.storyWithOpenMenu === story}
@@ -231,6 +287,7 @@ const StoryBuilder = createReactClass({
     });
     return (
       <div className={className}>
+        {this.state.showVideoGuide && this.renderVideoGuide()}
         <div className={Styles.header}>
           {!hasStories && this.renderIntro()}
           <div className={Styles.actions}>
@@ -239,20 +296,21 @@ const StoryBuilder = createReactClass({
                 disabled={this.state.editingMode || !hasStories}
                 className={Styles.previewBtn}
                 onClick={this.runStories}
-                title="preview stories"
+                title="播放地图故事"
               >
                 <Icon glyph={Icon.GLYPHS.play} />
-                Play Story
+                播放
               </button>
             )}
             <button
               disabled={this.state.editingMode}
               className={Styles.captureBtn}
-              title="capture current scene"
+              title="捕获当前场景"
               onClick={this.onClickCapture}
             >
               {" "}
-              <Icon glyph={Icon.GLYPHS.story} /> 捕获场景{" "}
+              <Icon glyph={Icon.GLYPHS.story} />
+              捕获场景{" "}
             </button>
           </div>
         </div>
