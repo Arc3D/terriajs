@@ -153,7 +153,6 @@ const StandardUserInterface = createReactClass({
       !this.props.viewState.storyBuilderShown;
     return (
       <div className={Styles.storyWrapper}>
-        <WelcomeMessage viewState={this.props.viewState} />
         <div
           className={classNames(Styles.uiRoot, {
             [Styles.withStoryBuilder]: showStoryBuilder
@@ -268,7 +267,6 @@ const StandardUserInterface = createReactClass({
           </If>
 
           <Notification viewState={this.props.viewState} />
-          <SatelliteGuide terria={terria} viewState={this.props.viewState} />
           <MapInteractionWindow
             terria={terria}
             viewState={this.props.viewState}

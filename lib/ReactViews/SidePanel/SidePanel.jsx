@@ -96,7 +96,7 @@ const SidePanel = createReactClass({
             viewState={this.props.viewState}
             minified={true}
             animationDuration={250}
-            btnText="Òþ²Ø"
+            btnText="éšè—"
           />
 
           <SearchBox
@@ -104,23 +104,23 @@ const SidePanel = createReactClass({
             onDoSearch={this.search}
             onFocus={this.startLocationSearch}
             searchText={searchState.locationSearchText}
-            placeholder="ËÑË÷µØµã"
+            placeholder="æœç´¢åœ°ç‚¹"
           />
           <div className={Styles.addData}>
             <button
               type="button"
               onClick={this.onAddDataClicked}
               className={Styles.button}
-              title="Ìí¼ÓÊý¾Ý"
+              title="æ·»åŠ æ•°æ®"
             >
               <Icon glyph={Icon.GLYPHS.add} />
-              Ìí¼ÓÊý¾Ý
+              æ·»åŠ æ•°æ®
             </button>
             <button
               type="button"
               onClick={this.onAddLocalDataClicked}
               className={Styles.uploadData}
-              title="¼ÓÔØ±¾µØ/ÍøÂçÊý¾Ý"
+              title="åŠ è½½æœ¬åœ°/ç½‘ç»œæ•°æ®"
             >
               <Icon glyph={Icon.GLYPHS.upload} />
             </button>
@@ -155,17 +155,17 @@ const SidePanel = createReactClass({
             </When>
             <Otherwise>
               <div className={Styles.workbenchEmpty}>
-                <div>¹¤×÷Ì¨ÊÇ¿ÕµÄ</div>
+                <div>å·¥ä½œå°æ˜¯ç©ºçš„</div>
                 <p>
-                  <strong>µã»÷ÉÏ·½µÄ &apos;Ìí¼ÓÊý¾Ý&apos; °´Å¥£º</strong>
+                  <strong>ç‚¹å‡»ä¸Šæ–¹çš„ &apos;æ·»åŠ æ•°æ®&apos; æŒ‰é’®ï¼š</strong>
                 </p>
                 <ul>
-                  <li>ä¯ÀÀÊý¾ÝÄ¿Â¼</li>
-                  <li>½«×Ô¼ºµÄÊý¾ÝÌí¼Óµ½µØÍ¼ÉÏ</li>
+                  <li>æµè§ˆæ•°æ®ç›®å½•</li>
+                  <li>å°†è‡ªå·±çš„æ•°æ®æ·»åŠ åˆ°åœ°å›¾ä¸Š</li>
                 </ul>
                 <p>
                   <Icon glyph={Icon.GLYPHS.bulb} />
-                  <strong>ÌáÊ¾£º</strong> <em>ËùÓÐÌí¼ÓµÄÊý¾Ý¶¼»áÕ¹Ê¾ÔÚÕâÀï</em>
+                  <strong>æç¤ºï¼š</strong> <em>æ‰€æœ‰æ·»åŠ çš„æ•°æ®éƒ½ä¼šå±•ç¤ºåœ¨è¿™é‡Œ</em>
                 </p>
               </div>
             </Otherwise>

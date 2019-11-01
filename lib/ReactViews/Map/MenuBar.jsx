@@ -113,27 +113,6 @@ const MenuBar = createReactClass({
               viewState={this.props.viewState}
             />
           </li>
-          <li className={Styles.menuItem}>
-            <HelpMenuPanelBasic
-              terria={this.props.terria}
-              viewState={this.props.viewState}
-            />
-            {satelliteGuidancePrompted &&
-              !mapGuidesLocationPrompted &&
-              !this.props.viewState.showSatelliteGuidance && (
-                <Prompt
-                  content={
-                    <div>
-                      You can access map guides at any time by looking in the{" "}
-                      <strong>help menu</strong>.
-                    </div>
-                  }
-                  displayDelay={1000}
-                  dismissText={"Got it, thanks!"}
-                  dismissAction={this.dismissSatelliteGuidanceAction}
-                />
-              )}
-          </li>
           {enableTools && (
             <li className={Styles.menuItem}>
               <ToolsPanel
