@@ -1,9 +1,28 @@
 Change Log
 ==========
 
-### next patch
+### v7.8.0
 
-* Allow MapboxMapCatalogItems to be specified in catalog files using type "mapbox-map".
+* Added ability to do in-app, "static guides" through `<Guide />`s
+* Added in-app Guide for time enabled WMS items
+* Initial implementation of language overrides to support setting custom text throughout the application.
+* Added ability to pass `leafletUpdateInterval` to an `ImageryLayerCatalogItem` to throttle the number of requests made to a server.
+
+### v7.7.0
+
+* Added a quality slider for the 3D map to the Map panel, allowing control of Cesium's maximumScreenSpaceError and resolutionScale properties.
+* Allowed MapboxMapCatalogItems to be specified in catalog files using type `mapbox-map`.
+* We now use styles derived from `drawingInfo` from Esri Feature Services.
+* Chart related enhancements:
+  * Added momentPoints chart type to plot points along an available line chart.
+  * Added zooming and panning on the chart panel.
+  * Various preventative fixes to prevent chart crashes.
+* Increased the tolerance for intermittent tile failures from time-varying raster layers. More failures will now be allowed before the layer is disabled.
+* Sensor Observation Service `GetFeatureOfInterest` requests no longer erroneously include `temporalFilters`. Also improved the generated request XML to be more compliant with the specification.
+* Fixed a bug where differences in available dates for `ImageryLayerCatalogItem` from original list of dates vs a new list of dates, would cause an error.
+* Improved support for layers rendered across the anti-meridian in 2D (Leaflet).
+* Fixed a crash when splitting a layer with a `momentPoints` chart item.
+* Fixed a crash when the specified Web Map Service (WMS) layer could not be found in the `GetCapabilities` document and an alternate legend was not explicitly specified.
 
 ### v7.6.11
 

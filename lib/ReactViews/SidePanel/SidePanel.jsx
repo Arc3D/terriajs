@@ -12,6 +12,7 @@ import Workbench from "../Workbench/Workbench.jsx";
 import Icon from "../Icon.jsx";
 import FullScreenButton from "./FullScreenButton.jsx";
 import { removeMarker } from "../../Models/LocationMarkerUtils";
+import getReactElementFromContents from "../ReactHelpers/getReactElementFromContents";
 
 import Styles from "./side-panel.scss";
 
@@ -82,6 +83,10 @@ const SidePanel = createReactClass({
 
   render() {
     const searchState = this.props.viewState.searchState;
+    const emptyWorkbenchValue = this.props.terria.language[
+      "EmptyWorkbenchMessage"
+    ];
+    const emptyWorkbench = getReactElementFromContents(emptyWorkbenchValue);
 
     return (
       <div className={Styles.workBench}>
@@ -91,7 +96,7 @@ const SidePanel = createReactClass({
             viewState={this.props.viewState}
             minified={true}
             animationDuration={250}
-            btnText="éšè—"
+            btnText="Òş²Ø"
           />
 
           <SearchBox
@@ -99,23 +104,23 @@ const SidePanel = createReactClass({
             onDoSearch={this.search}
             onFocus={this.startLocationSearch}
             searchText={searchState.locationSearchText}
-            placeholder="æœç´¢åœ°ç‚¹"
+            placeholder="ËÑË÷µØµã"
           />
           <div className={Styles.addData}>
             <button
               type="button"
               onClick={this.onAddDataClicked}
               className={Styles.button}
-              title="æ·»åŠ æ•°æ®"
+              title="Ìí¼ÓÊı¾İ"
             >
               <Icon glyph={Icon.GLYPHS.add} />
-              æ·»åŠ æ•°æ®
+              Ìí¼ÓÊı¾İ
             </button>
             <button
               type="button"
               onClick={this.onAddLocalDataClicked}
               className={Styles.uploadData}
-              title="åŠ è½½æœ¬åœ°/ç½‘ç»œæ•°æ®"
+              title="¼ÓÔØ±¾µØ/ÍøÂçÊı¾İ"
             >
               <Icon glyph={Icon.GLYPHS.upload} />
             </button>
@@ -150,17 +155,17 @@ const SidePanel = createReactClass({
             </When>
             <Otherwise>
               <div className={Styles.workbenchEmpty}>
-                <div>å·¥ä½œå°æ˜¯ç©ºçš„</div>
+                <div>¹¤×÷Ì¨ÊÇ¿ÕµÄ</div>
                 <p>
-                  <strong>ç‚¹å‡»ä¸Šæ–¹çš„ &apos;æ·»åŠ æ•°æ®&apos; æŒ‰é’®ï¼š</strong>
+                  <strong>µã»÷ÉÏ·½µÄ &apos;Ìí¼ÓÊı¾İ&apos; °´Å¥£º</strong>
                 </p>
                 <ul>
-                  <li>æµè§ˆæ•°æ®ç›®å½•</li>
-                  <li>å°†è‡ªå·±çš„æ•°æ®æ·»åŠ åˆ°åœ°å›¾ä¸Š</li>
+                  <li>ä¯ÀÀÊı¾İÄ¿Â¼</li>
+                  <li>½«×Ô¼ºµÄÊı¾İÌí¼Óµ½µØÍ¼ÉÏ</li>
                 </ul>
                 <p>
                   <Icon glyph={Icon.GLYPHS.bulb} />
-                  <strong>æç¤ºï¼š</strong> <em>æ‰€æœ‰æ·»åŠ çš„æ•°æ®éƒ½ä¼šå±•ç¤ºåœ¨è¿™é‡Œ</em>
+                  <strong>ÌáÊ¾£º</strong> <em>ËùÓĞÌí¼ÓµÄÊı¾İ¶¼»áÕ¹Ê¾ÔÚÕâÀï</em>
                 </p>
               </div>
             </Otherwise>
